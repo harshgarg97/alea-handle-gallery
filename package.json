@@ -1,0 +1,28 @@
+{
+  "name": "alea-handle-gallery-pro",
+  "version": "1.0.0",
+  "description": "ALEA Handle Gallery Pro - professional product database & gallery for kitchen handles",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node scripts/seed-from-zip.js",
+    "reset-db": "node scripts/reset-db.js"
+  },
+  "keywords": ["gallery", "catalogue", "handles", "alea", "product-database"],
+  "author": "ALEA Modular",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.5"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

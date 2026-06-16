@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <title>Bulk Upload · ALEA Handle Gallery Pro</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link rel="icon" href="/static/img/placeholder.svg" />
+</head>
+<body>
+  <div id="header-slot"></div>
+
+  <main class="container">
+    <div class="page-head">
+      <span class="eyebrow">Admin</span>
+      <h1>Bulk ZIP Upload</h1>
+      <p>Upload a ZIP of handle folders. Each subfolder becomes a product — the first image is the cover, the rest form the gallery.</p>
+    </div>
+
+    <div class="upload-grid">
+      <div>
+        <div class="dropzone" id="dropzone">
+          <svg class="big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <h3>Drop your ZIP here</h3>
+          <p>or click to browse · max 2 GB</p>
+          <input id="fileInput" type="file" accept=".zip,application/zip" hidden />
+        </div>
+
+        <div class="upload-file hide" id="fileInfo">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--gold-deep)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="fi"><b id="fileName"></b><div class="muted" id="fileSize" style="font-size:12.5px"></div></div>
+          <button class="icon-btn" id="clearFile">×</button>
+        </div>
+
+        <div class="progress" id="progress"><div class="fill" id="progressFill"></div></div>
+
+        <div class="flex gap mt-2">
+          <button class="btn btn-gold" id="uploadBtn" disabled>Import Catalogue</button>
+          <a class="btn btn-ghost" href="/dashboard">Cancel</a>
+        </div>
+
+        <div id="resultBox" class="mt-2"></div>
+      </div>
+
+      <aside class="info-box">
+        <h3>How it works</h3>
+        <ol>
+          <li>Your ZIP should contain one <b>folder per product</b>, e.g. <code>AL-1026 Graphite Black/</code>.</li>
+          <li>Each folder holds the product's images (<code>PIC 1.png</code>, <code>PIC 2.jpeg</code>…).</li>
+          <li>The <b>first image</b> (natural order) becomes the cover; the rest form the gallery.</li>
+          <li><b>Model number</b> &amp; <b>finish</b> are detected from the folder name automatically.</li>
+          <li>Thumbnails and optimised web images are generated on import.</li>
+          <li>A flat ZIP of loose images becomes a single product named after the ZIP.</li>
+        </ol>
+        <p class="muted mt-2" style="font-size:13px">Tip: re-uploading the same folder creates a new product entry. Use the gallery to manage or remove duplicates.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><span>© <span id="yr"></span> ALEA Modular · Handle Gallery Pro</span></div></footer>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/upload.js"></script>
+</body>
+</html>

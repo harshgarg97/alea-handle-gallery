@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <title>Dashboard · ALEA Handle Gallery Pro</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link rel="icon" href="/static/img/placeholder.svg" />
+</head>
+<body>
+  <div id="header-slot"></div>
+
+  <main class="container">
+    <div class="page-head flex center" style="justify-content:space-between;flex-wrap:wrap;gap:14px">
+      <div>
+        <span class="eyebrow">Admin</span>
+        <h1>Dashboard</h1>
+      </div>
+      <div class="flex gap wrap">
+        <a class="btn btn-ghost" href="/api/export/csv">⬇ Export CSV</a>
+        <a class="btn btn-ghost" href="/api/export/excel">⬇ Export Excel</a>
+        <a class="btn btn-gold" href="/upload">＋ Bulk Upload</a>
+      </div>
+    </div>
+
+    <div class="stat-grid" id="stats"></div>
+
+    <div class="panel" style="margin-bottom:24px">
+      <div class="panel-head"><h3>Quick search</h3></div>
+      <div class="panel-body">
+        <div class="search-box" style="max-width:520px">
+          <span id="searchIcon"></span>
+          <input id="quickSearch" type="search" placeholder="Search products by model, name or finish…" autocomplete="off"/>
+        </div>
+        <div class="grid" id="searchResults" style="margin-top:18px"></div>
+      </div>
+    </div>
+
+    <div class="dash-grid">
+      <div class="panel">
+        <div class="panel-head"><h3>Recent uploads</h3><a class="gold" href="/" style="font-size:14px">View all →</a></div>
+        <div class="panel-body"><div class="recent-list" id="recent"></div></div>
+      </div>
+      <div>
+        <div class="panel">
+          <div class="panel-head"><h3>By category</h3></div>
+          <div class="panel-body" id="byCategory"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Import history</h3></div>
+          <div class="panel-body" style="overflow-x:auto"><table class="data" id="history"></table></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><span>© <span id="yr"></span> ALEA Modular · Handle Gallery Pro</span></div></footer>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

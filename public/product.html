@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <title>Product · ALEA Handle Gallery Pro</title>
+  <meta name="description" content="Handle product detail — specifications, gallery and downloads." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link rel="icon" href="/static/img/placeholder.svg" />
+</head>
+<body>
+  <div id="header-slot"></div>
+
+  <main class="container" id="main" style="padding-top:24px">
+    <a href="/" class="btn btn-ghost btn-sm" style="margin-bottom:18px">‹ Back to gallery</a>
+    <div id="content">
+      <div class="state"><div class="spinner"></div><p style="margin-top:14px">Loading product…</p></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><span>© <span id="yr"></span> ALEA Modular · Handle Gallery Pro</span></div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose">×</button>
+    <button class="lb-nav lb-prev" id="lbPrev">‹</button>
+    <img id="lbImg" src="" alt="" />
+    <button class="lb-nav lb-next" id="lbNext">›</button>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/lightbox.js"></script>
+  <script src="/static/js/product.js"></script>
+</body>
+</html>

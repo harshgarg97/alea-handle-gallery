@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <title>ALEA Handle Gallery Pro — Kitchen Handle Catalogue</title>
+  <meta name="description" content="Browse the ALEA kitchen handle catalogue. Search and filter premium handles by model number, category, finish and size." />
+  <meta property="og:title" content="ALEA Handle Gallery Pro" />
+  <meta property="og:description" content="Premium kitchen handle catalogue with instant search and filtering." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link rel="icon" href="/static/img/placeholder.svg" />
+</head>
+<body>
+  <div id="header-slot"></div>
+
+  <main class="container">
+    <div class="page-head">
+      <span class="eyebrow">Product Catalogue</span>
+      <h1>Kitchen Handle Collection</h1>
+      <p>Explore the full ALEA range. Search instantly by model, name or finish, and filter to find the perfect handle.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-box">
+        <span id="searchIcon"></span>
+        <input id="search" type="search" placeholder="Search by model number, name or finish…" autocomplete="off" />
+      </div>
+      <select class="select" id="f-category"><option value="">All Categories</option></select>
+      <select class="select" id="f-finish"><option value="">All Finishes</option></select>
+      <select class="select" id="f-size"><option value="">All Sizes</option></select>
+      <select class="select" id="f-sort">
+        <option value="newest">Newest</option>
+        <option value="name_asc">Name A–Z</option>
+        <option value="name_desc">Name Z–A</option>
+        <option value="model_asc">Model number</option>
+      </select>
+    </div>
+
+    <div class="result-meta">
+      <span class="count" id="count">Loading…</span>
+      <button class="btn btn-ghost btn-sm" id="clearBtn" style="display:none">Clear filters</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <div id="emptyState"></div>
+    <div class="pagination" id="pagination"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="yr"></span> ALEA Modular · Handle Gallery Pro</span>
+      <span>Premium product catalogue system</span>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose">×</button>
+    <button class="lb-nav lb-prev" id="lbPrev">‹</button>
+    <img id="lbImg" src="" alt="" />
+    <button class="lb-nav lb-next" id="lbNext">›</button>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/lightbox.js"></script>
+  <script src="/static/js/gallery.js"></script>
+</body>
+</html>

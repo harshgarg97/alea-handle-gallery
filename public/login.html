@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <title>Sign in · ALEA Handle Gallery Pro</title>
+  <meta name="description" content="Admin sign in for ALEA Handle Gallery Pro." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link rel="icon" href="/static/img/placeholder.svg" />
+</head>
+<body>
+  <div class="login-wrap">
+    <aside class="login-art">
+      <div>
+        <span class="eyebrow">ALEA Modular</span>
+        <h2>The handle catalogue, refined.</h2>
+      </div>
+      <ul>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Bulk ZIP import with auto product creation</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Instant search &amp; smart filtering</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Excel &amp; CSV export, ready for handover</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Works beautifully on desktop &amp; Android</li>
+      </ul>
+      <div class="muted" style="color:rgba(255,255,255,.5);font-size:13px">Premium product catalogue system</div>
+    </aside>
+
+    <main class="login-form-side">
+      <div class="login-card">
+        <div class="brand">
+          <div class="brand-mark">A</div>
+          <div class="brand-text"><b>ALEA</b><span>Handle Gallery</span></div>
+        </div>
+        <h1>Welcome back</h1>
+        <p class="sub">Sign in to manage your catalogue</p>
+
+        <div class="login-error" id="err"></div>
+        <form id="loginForm">
+          <div class="field">
+            <label for="u">Username</label>
+            <input id="u" name="username" autocomplete="username" required autofocus placeholder="admin" />
+          </div>
+          <div class="field">
+            <label for="p">Password</label>
+            <input id="p" name="password" type="password" autocomplete="current-password" required placeholder="••••••••" />
+          </div>
+          <button class="btn btn-gold" style="width:100%" type="submit" id="submitBtn">Sign In</button>
+        </form>
+        <p class="login-hint">Default credentials: <b>admin</b> / <b>changeme123</b> — change in <code>.env</code></p>
+        <p class="login-hint"><a href="/" class="gold">← Back to public gallery</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/common.js"></script>
+  <script>
+    const { api } = window.ALEA;
+    const form = document.getElementById('loginForm');
+    const err = document.getElementById('err');
+    const btn = document.getElementById('submitBtn');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      err.style.display = 'none';
+      btn.disabled = true; btn.textContent = 'Signing in…';
+      try {
+        await api('/api/auth/login', { method: 'POST', body: JSON.stringify({
+          username: form.username.value, password: form.password.value }) });
+        location.href = '/dashboard';
+      } catch (ex) {
+        err.textContent = ex.message || 'Login failed';
+        err.style.display = 'block';
+        btn.disabled = false; btn.textContent = 'Sign In';
+      }
+    });
+  </script>
+</body>
+</html>
